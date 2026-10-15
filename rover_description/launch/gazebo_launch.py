@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
+from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
@@ -31,21 +31,47 @@ def generate_launch_description():
         value=os.path.join(package_share, '..') + ':' + os.environ.get('GAZEBO_MODEL_PATH', '')
     )
 
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        parameters=[{'robot_description': robot_description}],
+        output='screen'
+    )
+
+    spawn_entity = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=['-topic', 'robot_description', '-entity', entity_name, '-z', '0.5'],
+        output='screen'
+    )
+
+    joint_state_broadcaster_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_state_broadcaster'],
+        output='screen'
+    )
+
+    diff_drive_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['diff_drive_controller'],
+        output='screen'
+    )
+
     return LaunchDescription([
         set_model_path,
         gazebo,
+        robot_state_publisher,
+        spawn_entity,
 
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            parameters=[{'robot_description': robot_description}],
-            output='screen'
+        TimerAction(
+            period=3.0,
+            actions=[joint_state_broadcaster_spawner]
         ),
 
-        Node(
-            package='gazebo_ros',
-            executable='spawn_entity.py',
-            arguments=['-topic', 'robot_description', '-entity', entity_name, '-z', '0.5'],
-            output='screen'
+        TimerAction(
+            period=5.0,
+            actions=[diff_drive_spawner]
         ),
     ])
