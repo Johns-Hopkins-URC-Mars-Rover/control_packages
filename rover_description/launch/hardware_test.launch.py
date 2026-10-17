@@ -14,7 +14,7 @@ def generate_launch_description():
     )
 
     controller_config = os.path.join(
-        package_share, 'config', 'single_motor_controller.yaml'
+        package_share, 'config', 'rover_controller.yaml'
     )
 
     with open(urdf_file, 'r') as infp:
