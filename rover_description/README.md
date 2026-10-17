@@ -1,0 +1,2 @@
+To view in gazebo: ros2 launch rover_description gazebo_launch.py  
+To publish drive command: ros2 topic pub /diff_drive_controller/cmd_vel_unstamped geometry_msgs/msg/Twist "{linear: {x: -0.3}, angular: {z: 0.0}}"
