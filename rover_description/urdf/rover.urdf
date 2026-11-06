@@ -506,7 +506,7 @@
 
   <ros2_control name="Rover" type="system">
     <hardware>
-      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
+      <plugin>cubemars_pi3hat_hardware/CubeMarsPi3HatSystemHardware</plugin>
     <param name="can_interface">can0</param>
     </hardware>
 
