@@ -51,6 +51,13 @@ def generate_launch_description():
             output='screen'
         ),
 
+        Node(
+            package='controller_manager',
+            executable='spawner',
+            arguments=['diff_drive_controller'],
+            output='screen'
+        ),
+
         # Visualize the rover
         Node(
             package='rviz2',
