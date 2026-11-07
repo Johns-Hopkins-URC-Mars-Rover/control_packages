@@ -518,6 +518,7 @@
       <param name="kt">0.123</param>
       <param name="enc_off">0</param>
       <param name="trq_limit">24</param>
+      <param name="read_only">1</param>
       <command_interface name="position"/>
       <command_interface name="velocity"/>
       <command_interface name="acceleration"/>
