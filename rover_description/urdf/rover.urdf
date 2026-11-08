@@ -520,7 +520,7 @@
       <param name="max_current">18.0</param>
       <param name="max_torque">18.0</param>
       <param name="max_velocity">31.416</param>
-      <param name="read_only">1</param>
+      <param name="read_only">0</param>
       <!--For testing right now we use read-only, will change when testing write-->
 
       <param name="enc_off">0</param>
