@@ -504,27 +504,29 @@
       velocity="57" />
   </joint>
 
-  <ros2_control name="Rover" type="system">
+  <ros2_control name="Wheel_1" type="system">
     <hardware>
       <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
+      <!--which can channel on the mjbots pi hat the motor plugged into-->
       <param name="can_channel">1</param>
     </hardware>
 
     <joint name="left_front_joint">
-      <!-- Physical AK70-10 on pi3hat bus 1, motor ID 4 -->
-      <param name="can_id">4</param>
+      <!--Physical AK70-10 on pi3hat bus, motor id 1 (should be)-->
+      <param name="can_id">1</param>
+      <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">10</param>
       <param name="kt">0.123</param>
-
       <param name="max_current">18.0</param>
       <param name="max_torque">18.0</param>
       <param name="max_velocity">31.416</param>
-      <param name="read_only">0</param>
-      <!--For testing right now we use read-only, will change when testing write-->
-
       <param name="enc_off">0</param>
       <param name="trq_limit">18</param>
+
+      <param name="read_only">0</param>
+
+      
       <command_interface name="position"/>
       <command_interface name="velocity"/>
       <command_interface name="acceleration"/>
@@ -536,38 +538,166 @@
     </joint>
   </ros2_control>
 
-  <ros2_control name="Rover2" type="system">
+  <ros2_control name="Wheel_2" type="system">
     <hardware>
-      <plugin>mock_components/GenericSystem</plugin>
+      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
+      <!--which can channel on the mjbots pi hat the motor plugged into-->
+      <param name="can_channel">2</param>
     </hardware>
-    <joint name="left_mid_joint">
-      <command_interface name="velocity"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-
-    <joint name="left_back_joint">
-      <command_interface name="velocity"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
 
     <joint name="right_front_joint">
+      <!--Physical AK70-10 on pi3hat bus, motor id 2 (should be)-->
+      <param name="can_id">1</param>
+      <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">10</param>
+      <param name="kt">0.123</param>
+      <param name="max_current">18.0</param>
+      <param name="max_torque">18.0</param>
+      <param name="max_velocity">31.416</param>
+      <param name="enc_off">0</param>
+      <param name="trq_limit">18</param>
+
+      <param name="read_only">0</param>
+
+      
+      <command_interface name="position"/>
       <command_interface name="velocity"/>
+      <command_interface name="acceleration"/>
+      <command_interface name="effort"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <state_interface name="temperature"/>
     </joint>
+  </ros2_control>
+
+  <ros2_control name="Wheel_3" type="system">
+    <hardware>
+      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
+      <!--which can channel on the mjbots pi hat the motor plugged into-->
+      <param name="can_channel">3</param>
+    </hardware>
+
+    <joint name="left_mid_joint">
+      <!--Physical AK70-10 on pi3hat bus, motor id 1 (should be)-->
+      <param name="can_id">3</param>
+      <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">10</param>
+      <param name="kt">0.123</param>
+      <param name="max_current">18.0</param>
+      <param name="max_torque">18.0</param>
+      <param name="max_velocity">31.416</param>
+      <param name="enc_off">0</param>
+      <param name="trq_limit">18</param>
+
+      <param name="read_only">0</param>
+
+      
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="acceleration"/>
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <state_interface name="temperature"/>
+    </joint>
+  </ros2_control>
+
+  <ros2_control name="Wheel_4" type="system">
+    <hardware>
+      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
+      <!--which can channel on the mjbots pi hat the motor plugged into-->
+      <param name="can_channel">4</param>
+    </hardware>
 
     <joint name="right_mid_joint">
+      <!--Physical AK70-10 on pi3hat bus, motor id 1 (should be)-->
+      <param name="can_id">4</param>
+      <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">10</param>
+      <param name="kt">0.123</param>
+      <param name="max_current">18.0</param>
+      <param name="max_torque">18.0</param>
+      <param name="max_velocity">31.416</param>
+      <param name="enc_off">0</param>
+      <param name="trq_limit">18</param>
+
+      <param name="read_only">0</param>
+
+      
+      <command_interface name="position"/>
       <command_interface name="velocity"/>
+      <command_interface name="acceleration"/>
+      <command_interface name="effort"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <state_interface name="temperature"/>
+    </joint>
+  </ros2_control>
+
+  <!--Channel 5 is connected to motors 5 and 6-->
+  <ros2_control name="Wheel_5_6" type="system">
+    <hardware>
+      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
+      <!--which can channel on the mjbots pi hat the motor plugged into-->
+      <param name="can_channel">5</param>
+    </hardware>
+
+    <joint name="left_back_joint">
+      <!--Physical AK70-10 on pi3hat bus, motor id 1 (should be)-->
+      <param name="can_id">5</param>
+      <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">10</param>
+      <param name="kt">0.123</param>
+      <param name="max_current">18.0</param>
+      <param name="max_torque">18.0</param>
+      <param name="max_velocity">31.416</param>
+      <param name="enc_off">0</param>
+      <param name="trq_limit">18</param>
+
+      <param name="read_only">0</param>
+
+      
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="acceleration"/>
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <state_interface name="temperature"/>
     </joint>
 
     <joint name="right_back_joint">
+      <!--Physical AK70-10 on pi3hat bus, motor id 1 (should be)-->
+      <param name="can_id">6</param>
+      <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">10</param>
+      <param name="kt">0.123</param>
+      <param name="max_current">18.0</param>
+      <param name="max_torque">18.0</param>
+      <param name="max_velocity">31.416</param>
+      <param name="enc_off">0</param>
+      <param name="trq_limit">18</param>
+
+      <param name="read_only">0</param>
+      
+      <command_interface name="position"/>
       <command_interface name="velocity"/>
+      <command_interface name="acceleration"/>
+      <command_interface name="effort"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <state_interface name="temperature"/>
     </joint>
   </ros2_control>
+
 </robot>
