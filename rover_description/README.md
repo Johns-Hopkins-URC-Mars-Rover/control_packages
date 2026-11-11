@@ -1,5 +1,5 @@
 For simulation:
-To view in gazebo: ros2 launch rover_description gazebo_launch.py
+To view in gazebo: ros2 launch rover_description gazebo_launch.py  
 To view in rviz: ros2 launch rover_description rviz_launch.py
 
 For hardware testing:
