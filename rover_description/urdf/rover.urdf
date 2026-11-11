@@ -507,6 +507,7 @@
   <ros2_control name="Rover" type="system">
     <hardware>
       <plugin>mock_components/GenericSystem</plugin>
+      <param name="calculate_dynamics">true</param>
     </hardware>
     <joint name="left_front_joint">
       <command_interface name="velocity"/>
