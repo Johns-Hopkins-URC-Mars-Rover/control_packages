@@ -15,11 +15,19 @@ diff_drive_controller:
     right_wheel_radius_multiplier: -1.0
     wheel_separation: 0.52
     wheel_radius: 0.1
+    publish_limited_velocity: true
+
+    linear.x.has_acceleration_limits: true
+    linear.x.has_jerk_limits: true
+    linear.x.max_acceleration: 0.5
+    linear.x.min_acceleration: -0.5
+    linear.x.max_jerk: 2.0
+    linear.x.min_jerk: -2.0
 
     base_frame_id: chassis
     odom_frame_id: odom
 
-    publish_rate: 100.0
+    publish_rate: 50.0
     cmd_vel_timeout: 0.5
 
     use_stamped_vel: false
