@@ -504,10 +504,10 @@
       velocity="57" />
   </joint>
 
-  <ros2_control name="Wheel_1_and_Wheel_2" type="system">
+  <ros2_control name="Wheels" type="system">
     <hardware>
       <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
-      <!--which can channel on the mjbots pi hat the motor plugged into-->
+      <!--which can channel on the mjbots pi hat the motor(s) plugged into-->
       <param name="can_channel">1</param>
     </hardware>
 
@@ -640,7 +640,7 @@
     </joint>
 
     <joint name="right_front_joint">
-      <!--Physical AK70-10 on pi3hat bus, motor id 1 (should be)-->
+      <!--Physical AK70-10 on pi3hat bus, motor id 6 (should be)-->
       <param name="can_id">6</param>
       <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
       <param name="pole_pairs">21</param>
