@@ -569,7 +569,7 @@
       <param name="can_channel">2</param>
     </hardware>
 
-    <joint name="left_middle_joint">
+    <joint name="left_mid_joint">
       <!--Physical AK70-10 on pi3hat bus, motor id 3 (should be)-->
       <param name="can_id">3</param>
       <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
@@ -603,7 +603,7 @@
       <param name="can_channel">3</param>
     </hardware>
 
-    <joint name="right_middle_joint">
+    <joint name="right_mid_joint">
       <!--Physical AK70-10 on pi3hat bus, motor id 4 (should be)-->
       <param name="can_id">4</param>
       <!--These should stay the same across the AK70-10 Motors, some limits might be a bit conservative right now-->
