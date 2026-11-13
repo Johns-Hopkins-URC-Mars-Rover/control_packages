@@ -560,14 +560,6 @@
       <state_interface name="effort"/>
       <state_interface name="temperature"/>
     </joint>
-  </ros2_control>
-
-  <ros2_control name="Wheel_3" type="system">
-    <hardware>
-      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
-      <!--which can channel on the mjbots pi hat the motor plugged into-->
-      <param name="can_channel">2</param>
-    </hardware>
 
     <joint name="left_mid_joint">
       <!--Physical AK70-10 on pi3hat bus, motor id 3 (should be)-->
@@ -594,14 +586,6 @@
       <state_interface name="effort"/>
       <state_interface name="temperature"/>
     </joint>
-  </ros2_control>
-
-  <ros2_control name="Wheel_4" type="system">
-    <hardware>
-      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
-      <!--which can channel on the mjbots pi hat the motor plugged into-->
-      <param name="can_channel">3</param>
-    </hardware>
 
     <joint name="right_mid_joint">
       <!--Physical AK70-10 on pi3hat bus, motor id 4 (should be)-->
@@ -628,14 +612,6 @@
       <state_interface name="effort"/>
       <state_interface name="temperature"/>
     </joint>
-  </ros2_control>
-
-  <ros2_control name="Wheel_5" type="system">
-    <hardware>
-      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
-      <!--which can channel on the mjbots pi hat the motor plugged into-->
-      <param name="can_channel">4</param>
-    </hardware>
 
     <joint name="right_back_joint">
       <!--Physical AK70-10 on pi3hat bus, motor id 5 (should be)-->
@@ -662,15 +638,6 @@
       <state_interface name="effort"/>
       <state_interface name="temperature"/>
     </joint>
-  </ros2_control>
-
-  <!--Channel 5 is connected to motors 6-->
-  <ros2_control name="Wheel_6" type="system">
-    <hardware>
-      <plugin>cubemars_hardware/CubeMarsSystemHardware</plugin>
-      <!--which can channel on the mjbots pi hat the motor plugged into-->
-      <param name="can_channel">5</param>
-    </hardware>
 
     <joint name="right_front_joint">
       <!--Physical AK70-10 on pi3hat bus, motor id 1 (should be)-->
