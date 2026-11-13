@@ -12,7 +12,7 @@ diff_drive_controller:
   ros__parameters:
     left_wheel_names: ["left_front_joint", "left_mid_joint", "left_back_joint"]
     right_wheel_names: ["right_front_joint", "right_mid_joint", "right_back_joint"]
-
+    right_wheel_radius_multiplier: -1.0
     wheel_separation: 0.52
     wheel_radius: 0.1
 
